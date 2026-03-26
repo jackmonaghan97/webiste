@@ -1,5 +1,5 @@
 ---
-title: "Prison Population in Illinois"
+title: "FBI Crime Data Explorer Illinois"
 pipeline_github: "https://github.com/jmonaghan97/stakeholder-dashboard"
 dashboard_github: "https://github.com/jmonaghan97/stakeholder-dashboard"
 dashboard_url: "https://public.tableau.com/your-dashboard"

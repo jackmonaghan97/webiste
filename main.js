@@ -1,5 +1,5 @@
 // 1. Shared Global Variables
-const projects = ['test.md', 'test copy.md']; 
+const projects = ['aoic_probation.md', 'fbi_cde.md', 'idoc.md']; 
 const urlParams = new URLSearchParams(window.location.search);
 const projectSlug = urlParams.get('p'); 
 
@@ -30,61 +30,40 @@ async function renderHomeGrid() {
         const slug = file.replace('.md', '');
 
         grid.innerHTML += `
-            <a href="project_detail.html?p=${slug}" class="bg-blue-600 p-8 rounded-2xl text-white shadow-lg block hover:scale-[1.02] transition-transform">
-                <h3 class="text-2xl font-bold mb-3">${title}</h3>
-                <p class="text-blue-100">${abstract}</p>
+            <a href="project_detail.html?p=${slug}" class="bg-blue-200 p-8 rounded-2xl text-white shadow-lg block hover:scale-[1.02] transition-transform">
+                <h3 class="text-gray-700 font-bold uppercase">${title}</h3>
+                <p class="text-gray-600">${abstract}</p>
             </a>`;
     }
 }
 
+// 4. Project Detail Function
 async function renderProjectDetail() {
-    const grid = document.getElementById('project-grid');
-    for (const file of projects) {
-        const response = await fetch(`markdown/${file}`);
-        const text = await response.text();
-        const title = text.match(/title: "(.*)"/)[1];
-        const abstract = text.match(/abstract: "(.*)"/)[1];
-        const slug = file.replace('.md', '');
-
-        grid.innerHTML += `
-            <a href="project_detail.html?p=${slug}" class="bg-blue-600 p-8 rounded-2xl text-white shadow-lg block hover:scale-[1.02] transition-transform">
-                <h3 class="text-2xl font-bold mb-3">${title}</h3>
-                <p class="text-blue-100">${abstract}</p>
-            </a>`;
-    }
-} 
     
+    // 1. Fetch the file
+    const res = await fetch(`markdown/${projectSlug}.md`);
+    const raw = await res.text();
+
+    // 2. The Regex "Surgical Strike"
+    // This finds everything between the first and second ---
+    const metaMatch = raw.match(/^---\s*([\s\S]*?)\s*---/);
+    const meta = metaMatch ? metaMatch[1] : "";
     
-    
-    try {
-        const res = await fetch(`markdown/${projectSlug}.md`);
-        if (!res.ok) throw new Error("Markdown file not found");
-        
-        const raw = await res.text();
-        
-        // This regex extracts everything between the first two sets of ---
-        const metaMatch = raw.match(/^---\s*([\s\S]*?)\s*---/);
-        const meta = metaMatch ? metaMatch[1] : "";
-        const content = raw.replace(/^---\s*[\s\S]*?\s*---/, "");
+    // This finds everything AFTER the second ---
+    const content = raw.replace(/^---\s*[\s\S]*?\s*---/, "").trim();
 
-        // Helper function: Safely finds a variable or returns an empty string
-        const getMeta = (key) => {
-            const regex = new RegExp(`${key}:\\s*"(.*)"`);
-            const match = meta.match(regex);
-            return match ? match[1] : ""; 
-        };
+    // 3. Update the UI 
+    // We use a small helper to prevent "null" errors
+    const getField = (regex) => {
+        const match = meta.match(regex);
+        return match ? match[1] : "#"; // Default to '#' if missing
+    };
 
-        // Update the UI - Use the IDs exactly as they appear in your HTML
-        document.getElementById('hero-title').innerText = getMeta('title');
-        document.getElementById('pipe-link').href = getMeta('pipeline_github');
-        document.getElementById('dash-link').href = getMeta('dashboard_github');
-        document.getElementById('embedded-dashboard').src = getMeta('dashboard_url');
+    document.getElementById('hero-title').innerText = getField(/title:\s*"(.*)"/);
+    document.getElementById('pipe-link').href = getField(/pipeline_github:\s*"(.*)"/);
+    document.getElementById('dash-link').href = getField(/dashboard_github:\s*"(.*)"/);
+    document.getElementById('embedded-dashboard').src = getField(/dashboard_url:\s*"(.*)"/);
 
-        // Render the body text using the marked library
-        document.getElementById('markdown-body').innerHTML = marked.parse(content);
-        
-    } catch (err) {
-        console.error("Detail load error:", err);
-        document.getElementById('markdown-body').innerHTML = "<p>Project content could not be loaded.</p>";
-    }
+    // 4. Inject the Markdown body
+    document.getElementById('markdown-body').innerHTML = marked.parse(content);
 }

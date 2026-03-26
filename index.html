@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack Monaghan | Portfolio</title>
+    <script src="tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Modal functionality */
@@ -21,23 +22,38 @@
     <header class="container mx-auto py-16 px-6">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
             <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-                <img src="files\picture.jpg" alt="Jack Monaghan" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
+                <img src="files/picture.jpg" alt="Jack Monaghan" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
                 
                 <div>
                     <h1 class="text-5xl font-extrabold text-gray-900 tracking-tight">Jack Monaghan</h1>
-                    <p class="text-xl mt-3 text-blue-600 font-semibold uppercase tracking-wide">
-                        Project Manager • Illinois Criminal Justice Information Authority
+                    <p class="text-xl mt-3 text-blue-800 font-semibold uppercase tracking-wide">
+                        Project Manager | Data and Analytics Leader 
                     </p>
                     <p class="text-lg mt-1 text-gray-600 font-medium">
-                        Data Analytics • Data Engineering • Problem Solver • Chess Elo 1500+ Rapid ♟️
+                        Illinois Criminal Justice Information Authority 
                     </p>
                 </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+                <a href="#project-grid" 
+                class="text-sm font-bold text-gray-600 hover:text-blue-800 transition-colors px-4 py-2 flex items-center">
+                    Projects
+                </a>
+                <a href="https://public.tableau.com/app/profile/jack.monaghan" target="_blank" 
+                class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
+                    Go to Dashboards
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-6 space-y-16 pb-24">
 
+        <!-- Top line links -->
         <section>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Resources</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -65,87 +81,83 @@
             
         </section>
 
-        <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Technical Toolkit</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Languages</h4>
-                    <p class="text-sm text-gray-600">Python, SQL, R, Scala</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Analysis</h4>
-                    <p class="text-sm text-gray-600">Pandas, Tableau, Power BI</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Management</h4>
-                    <p class="text-sm text-gray-600">Jira, Agile, Scrum, SDLC</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Infrastructure</h4>
-                    <p class="text-sm text-gray-600">AWS, Docker, Git</p>
-                </div>
-            </div>
-        </section>
-
-        <div id="project-grid" class="grid md:grid-cols-2 gap-8">
-            <p class="text-gray-400 italic">Loading projects...</p>
-        </div>
-
-        <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2"> Example Projects </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <div class="bg-blue-600 p-8 rounded-2xl text-white shadow-lg">
-                    <h3 class="text-2xl font-bold mb-3"> Department of Corrections </h3>
-                    <p class="text-blue-100"> This is an example project description.</p>
-                
-                </div>
-
-                <div class="bg-gray-900 p-8 rounded-2xl text-white shadow-lg">
-                    <h3 class="text-2xl font-bold mb-3">Project Management OS</h3>
-                    <p class="text-gray-400">Custom internal workflow for tracking technical debt and deployment cycles across cross-functional teams.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Technical Toolkit</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Languages</h4>
-                    <p class="text-sm text-gray-600">Python, SQL, R, Scala</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Analysis</h4>
-                    <p class="text-sm text-gray-600">Pandas, Tableau, Power BI</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Management</h4>
-                    <p class="text-sm text-gray-600">Jira, Agile, Scrum, SDLC</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h4 class="text-sm font-bold text-gray-900 mb-2">Infrastructure</h4>
-                    <p class="text-sm text-gray-600">AWS, Docker, Git</p>
-                </div>
-            </div>
-        </section>
 
         <section>
             
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Testimonials</h2>
-            <div class="grid md:grid-cols-2 gap-8 italic text-gray-600">
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                    <p>"Jack has a rare ability to bridge the gap between complex data engineering and high-level project management."</p>
-                    <span class="block mt-4 text-sm font-bold not-italic text-gray-900">— Senior Director of Technology</span>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-8 border-b border-gray-200 pb-2">
+                Profile
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+                
+                <div class="md:col-span-2 space-y-6">
+
+                    <p class="text-lg text-gray-600 leading-relaxed text-justify [hyphens:auto]">
+                        I am a proactive Analyst Engineer and Project Manager with four years of experience architecting automated data
+                        pipelines and analytics tools. Currently leading the Research and Analysis unit at the ICJIA, I specialize in
+                        transforming complex, semi-structured datasets into actionable public transparency products. I thrive in dynamic
+                        environments where technical innovation meets strategic stakeholder management—whether I am migrating legacy
+                        repositories to modern CI/CD workflows or negotiating intergovernmental data-sharing agreements.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed text-justify [hyphens:auto]">
+                        My approach combines a "no-problem" attitude with high-level technical oversight, recently resulting in the
+                        elimination of 8 hours of manual labor weekly and an annual licensing cost reduction of $37,000. With a background
+                        in Mathematics and Environmental Economics, I bridge the gap between non-technical business requirements and
+                        scalable data products, ensuring that every modernization effort is both budget-conscious and statutorily secure.
+                    </p>
+                </div>  
+
+                <div class="flex flex-col gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Languages, Tools and Packages</h4>
+                        <p class="text-sm text-gray-800 font-medium"> Python, SQL, R, JavaScript, HTML, Tableau, Power BI</p>
+                        <p class="text-sm text-gray-500 font-light text-italic mt-1">
+                            Pandas, NumPy, Seaborn, Sklearn,
+                            Psycopg2, Matplotlib, Shiny, Polars </p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Management</h4>
+                        <p class="text-sm text-gray-800 font-medium">Jira, Azure DevOps, Agile PM</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Infrastructure</h4>
+                        <p class="text-sm text-gray-800 font-medium">Docker, AWS, PostGre, DuckDB, Terraform</p>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                    <p>"Always three moves ahead. His strategic thinking makes him an invaluable asset to any data-driven project."</p>
-                    <span class="block mt-4 text-sm font-bold not-italic text-gray-900">— Lead Product Manager</span>
-                </div>
+
             </div>
         </section>
 
+        <!-- Project -->
+        <section>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2"> Example Projects </h2>
+           <div id="project-grid" class="grid md:grid-cols-2 gap-8"></div>
+        </section>
+
+        <!-- Skills and experience sections -->
+        <section>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Technical Toolkit</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Languages</h4>
+                    <p class="text-sm text-gray-600">Python, SQL, R, JavaScript, HTML</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Analysis</h4>
+                    <p class="text-sm text-gray-600">Pandas, NumPy, Seaborne, Sklearn, Psycopg2, Matplotlib, Shiny, Polars, Tableau</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Management</h4>
+                    <p class="text-sm text-gray-600">Jira, Azure DevOps, Power Point, Microsoft</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Infrastructure</h4>
+                    <p class="text-sm text-gray-600">GitHub, GitLab, Azure DevOps, Docker, AWS, PostGre, DuckDB</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-white border-t border-gray-200 py-12 text-center">
@@ -197,5 +209,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="main.js"></script>
+
 </body>
 </html>
