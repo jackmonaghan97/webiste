@@ -87,13 +87,20 @@
             </div>
         </section>
 
+        <div id="project-grid" class="grid md:grid-cols-2 gap-8">
+            <p class="text-gray-400 italic">Loading projects...</p>
+        </div>
+
         <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Selected Products</h2>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2"> Example Projects </h2>
             <div class="grid md:grid-cols-2 gap-8">
+                
                 <div class="bg-blue-600 p-8 rounded-2xl text-white shadow-lg">
-                    <h3 class="text-2xl font-bold mb-3">Stakeholder Intel Dashboard</h3>
-                    <p class="text-blue-100">End-to-end automated reporting suite reducing manual data entry by 15 hours per week. Built with Python and Tableau.</p>
+                    <h3 class="text-2xl font-bold mb-3"> Department of Corrections </h3>
+                    <p class="text-blue-100"> This is an example project description.</p>
+                
                 </div>
+
                 <div class="bg-gray-900 p-8 rounded-2xl text-white shadow-lg">
                     <h3 class="text-2xl font-bold mb-3">Project Management OS</h3>
                     <p class="text-gray-400">Custom internal workflow for tracking technical debt and deployment cycles across cross-functional teams.</p>
@@ -102,6 +109,30 @@
         </section>
 
         <section>
+
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Technical Toolkit</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Languages</h4>
+                    <p class="text-sm text-gray-600">Python, SQL, R, Scala</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Analysis</h4>
+                    <p class="text-sm text-gray-600">Pandas, Tableau, Power BI</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Management</h4>
+                    <p class="text-sm text-gray-600">Jira, Agile, Scrum, SDLC</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="text-sm font-bold text-gray-900 mb-2">Infrastructure</h4>
+                    <p class="text-sm text-gray-600">AWS, Docker, Git</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            
             <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Testimonials</h2>
             <div class="grid md:grid-cols-2 gap-8 italic text-gray-600">
                 <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
@@ -164,6 +195,7 @@
             }
         }
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

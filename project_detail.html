@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | Jack Monaghan</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="p-6">
+        <a href="index.html" class="text-blue-600 font-bold hover:underline">← Back to Portfolio</a>
+    </nav>
+
+    <main class="container mx-auto py-12 px-6">
+        <h1 id="hero-title" class="text-5xl font-extrabold text-gray-900 mb-8 tracking-tight">Loading...</h1>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-1 space-y-8">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <h3 class="text-sm uppercase tracking-widest text-gray-400 font-bold mb-4">Project Assets</h3>
+                    <div class="flex flex-col gap-3">
+                        <a id="pipe-link" href="#" target="_blank" class="bg-gray-900 text-white text-center py-3 rounded-xl font-bold hover:bg-gray-800 transition">GitHub: Pipeline</a>
+                        <a id="dash-link" href="#" target="_blank" class="bg-gray-100 text-gray-900 text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition">GitHub: Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-2 rounded-2xl border border-gray-200 shadow-sm aspect-video">
+                    <iframe id="embedded-dashboard" src="" class="w-full h-full rounded-xl border-0"></iframe>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <article id="markdown-body" class="prose prose-blue prose-lg max-w-none bg-white p-10 rounded-3xl border border-gray-100 shadow-sm">
+                    </article>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="website/main.js"></script>
+</body>
+</html>
