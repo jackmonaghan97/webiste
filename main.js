@@ -1,5 +1,5 @@
 // 1. Shared Global Variables
-const projects = ['aoic_probation.md', 'fbi_cde.md', 'idoc.md']; 
+const projects = ['aoic_probation.md', 'fbi_cde.md', 'idoc.md', 'website.md']; 
 const urlParams = new URLSearchParams(window.location.search);
 const projectSlug = urlParams.get('p'); 
 
@@ -59,10 +59,30 @@ async function renderProjectDetail() {
         return match ? match[1] : "#"; // Default to '#' if missing
     };
 
+    // Get the Dashboard GitHub URL
+    const dashUrlGit = getField(/dashboard_github:\s*"(.*)"/);
+    const dashButtonGit = document.getElementById('dash-git-link');
+
+    // Get the Dashboard URL
+    const dashUrl = getField(/dashboard_github:\s*"(.*)"/);
+    const dashButton = document.getElementById('dash-link');
+
+    if (dashUrlGit && dashUrlGit !== "#" && dashUrlGit !== "") {
+        dashButtonGit.href = dashUrlGit;
+        dashButtonGit.style.display = 'inline-block'; // Or 'block' depending on your layout
+    } else {
+        dashButtonGit.style.display = 'none';
+    }
+
+    if (dashUrl && dashUrl !== "#" && dashUrl !== "") {
+        dashButton.href = dashUrl;
+        dashButtonGit.style.display = 'inline-block'; // Or 'block' depending on your layout
+    } else {
+        dashButtonGit.style.display = 'none';
+    }
+
     document.getElementById('hero-title').innerText = getField(/title:\s*"(.*)"/);
-    document.getElementById('pipe-link').href = getField(/pipeline_github:\s*"(.*)"/);
-    document.getElementById('dash-link').href = getField(/dashboard_github:\s*"(.*)"/);
-    document.getElementById('embedded-dashboard').src = getField(/dashboard_url:\s*"(.*)"/);
+    document.getElementById('pipe-link').href = getField(/github:\s*"(.*)"/);
 
     // 4. Inject the Markdown body
     document.getElementById('markdown-body').innerHTML = marked.parse(content);

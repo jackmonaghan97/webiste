@@ -1,6 +1,6 @@
 ---
 title: "Prison Population in Illinois"
-pipeline_github: "https://github.com/jmonaghan97/stakeholder-dashboard"
+github: "https://github.com/jmonaghan97/stakeholder-dashboard"
 dashboard_github: "https://github.com/jmonaghan97/stakeholder-dashboard"
 dashboard_url: "https://public.data.illinois.gov/#/site/Public/views/PrisonPopulation-SentencingCounty/SentencingDashboard?:iid=1"
 abstract: "This project covers IDOC prison data..."
