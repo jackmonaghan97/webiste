@@ -1,5 +1,5 @@
 // 1. Shared Global Variables
-const projects = ['aoic_probation.md', 'fbi_cde.md', 'idoc.md', 'website.md']; 
+const projects = ['idoc.md']; 
 const urlParams = new URLSearchParams(window.location.search);
 const projectSlug = urlParams.get('p'); 
 
@@ -87,3 +87,40 @@ async function renderProjectDetail() {
     // 4. Inject the Markdown body
     document.getElementById('markdown-body').innerHTML = marked.parse(content);
 }
+
+// 5. Product Grid
+async function loadProducts() {
+  try {
+    
+    const res = await fetch('products.json');
+    if (!res.ok) throw new Error('Failed to load products.json');
+    const products = await res.json();
+    const grid = document.querySelector('section > div.grid');
+    if (!grid) return;
+    grid.innerHTML = ''; // clear any placeholder
+    products
+    .filter(p => p.visible !== false)
+    .forEach(p => {
+    const a = document.createElement('a');
+    a.href = p.url || '#';
+    a.target = p.target || '_self';
+    if (a.target === '_blank') a.rel = 'noopener noreferrer';
+    a.className = 'bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group';
+
+    const title = document.createElement('span');
+    title.className = 'block text-sm font-bold text-gray-900 group-hover:text-blue-600';
+    title.textContent = p.title || '';
+
+    const subtitle = document.createElement('span');
+    subtitle.className = 'text-xs text-gray-500';
+    subtitle.textContent = p.subtitle || '';
+
+    a.appendChild(title);
+    a.appendChild(subtitle);
+    grid.appendChild(a);
+    });
+      } catch (err) {
+    console.error('Error loading products:', err);
+    // optional: show a minimal UI message
+    const grid = document.querySelector('section > div.grid');
+    if (grid) grid.innerHTML = 'Failed to load projects.'; } }
