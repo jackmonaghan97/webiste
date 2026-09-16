@@ -19,6 +19,7 @@
 
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
+    <!-- header -->
     <header class="container mx-auto py-16 px-6">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
             <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
@@ -35,19 +36,30 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+          <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+                <a href="datasets.html"
+                    class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
+                    Go to Datasets
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+
                 <a href="#project-grid"
-                class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
+                    class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
                     Go to Projects
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
                 </a>
             </div>
         </div>
     </header>
-
-    <main class="container mx-auto px-6 space-y-16 pb-24">
+        
+        <
+        <main class="container mx-auto px-6 space-y-16 pb-24">
 
         <!-- Top line links -->
         <section>
@@ -127,7 +139,7 @@
             </div>
         </section>
 
-        <!-- Top line links -->
+        <!-- Work Products -->
         <section>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Work Products</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -140,7 +152,15 @@
             </div>
         </section>
         
-        <!-- Project -->
+        <!-- Example Datasets -->
+        <section>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">
+                Example Datasets
+            </h2>
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+        </section>
+        
+        <!-- Projects -->
         <section>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2"> Example Projects </h2>
            <div id="project-grid" class="grid md:grid-cols-2 gap-8"></div>
