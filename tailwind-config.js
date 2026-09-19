@@ -2,13 +2,13 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          primary: '#2563eb',    // A bold Blue
-          secondary: '#1e293b',  // A deep Slate
-          accent: '#3b82f6',     // A lighter Blue
-          background: '#f8fafc', // Very light Gray
-          text: '#ff0000',       // Near Black
-        },
+        ink: '#020617',          // page background (slate-950)
+        panel: '#0f172a',        // cards (slate-900)
+        line: '#1e293b',         // borders (slate-800)
+        accent: '#38bdf8',       // sky-400: links, kickers, primary buttons
+      },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },

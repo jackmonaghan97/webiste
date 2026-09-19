@@ -1,0 +1,30 @@
+# jack-monaghan.com
+
+Static portfolio site (GitHub Pages). No build step: Tailwind and marked come from CDNs.
+
+```
+index.html          home: profile, resources, dashboard tiles, project cards
+project.html        one project write-up: ?id=idoc or ?id=aoic
+datasets.html       downloadable datasets
+site.js             renders every page from files/site_data.js
+site.css            theme (dark slate, glow gradient, cards, buttons)
+files/site_data.js  ALL content: projects, their dashboards / repos, datasets
+markdown/*.md       the project write-ups (rendered with marked)
+files/              CV.pdf, picture.jpg
+```
+
+## Edit
+
+- Add or change a dashboard, repo or dataset: `files/site_data.js`. The dashboard tiles on
+  the home page are derived from each project's `products`.
+- Change a write-up: `markdown/<id>.md`.
+
+## Preview
+
+`python -m http.server` in this folder, then <http://localhost:8000>. Opening
+`index.html` straight from disk also works, except that the markdown write-ups cannot be
+fetched over `file://` (the project page then shows the abstract with a note).
+
+## Deploy
+
+`.github/workflows/static.yml` publishes the folder to GitHub Pages on every push to `main`.

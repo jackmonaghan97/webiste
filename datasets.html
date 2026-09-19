@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datasets</title>
+    <title>Datasets | Jack Monaghan</title>
+    <script src="tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
 </head>
-<body class="bg-gray-50 min-h-screen">
-    
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <nav class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-bold text-gray-900">Datasets</a>
-                <a href="index.html" class="text-gray-600 hover:text-gray-900">← Back to Home</a>
-            </nav>
-        </div>
-    </header>
+<body class="text-slate-300 font-sans leading-relaxed antialiased">
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 py-12">
-
-        <!-- Datasets Grid -->
-        <div id="datasets-list" class="grid md:grid-cols-2 lg:grid-cols-1 gap-6">
-            <!-- Datasets will be populated here -->
+    <nav class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-accent">← Jack Monaghan</a>
+        <div class="flex gap-6">
+            <a href="index.html#dashboards" class="text-slate-400 hover:text-accent">Dashboards</a>
+            <a href="index.html#projects" class="text-slate-400 hover:text-accent">Projects</a>
         </div>
+    </nav>
 
-        <!-- Loading/Error States -->
-        <div id="loading" class="text-center py-8">
-            <p class="text-gray-500">Loading datasets...</p>
-        </div>
-        
-        <div id="error" class="text-center py-8 hidden">
-            <p class="text-red-500">Failed to load datasets.</p>
-        </div>
-
+    <main class="max-w-6xl mx-auto px-6 pt-12 pb-32">
+        <header class="max-w-3xl mb-14">
+            <p class="kicker mb-3">Open data</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Datasets</h1>
+            <p class="text-lg text-slate-400 mt-5 leading-relaxed">
+                Person-level extracts built by the pipelines, as plain CSV: the cleaned and appended versions of
+                what the agencies publish as dozens of Excel workbooks.
+            </p>
+            <div class="card p-5 mt-8 flex gap-4 items-start">
+                <svg class="w-6 h-6 flex-none text-accent mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                <p class="text-sm text-slate-300">
+                    <strong class="text-white">Heads up: these links start a download.</strong> Each one saves a CSV file straight to your
+                    device — between 34 MB and 291 MB — rather than opening a page. Nothing else is installed or run.
+                </p>
+            </div>
+        </header>
+        <div id="datasets-list" class="grid gap-6 max-w-5xl"></div>
     </main>
 
-    <script src="datasets.js"></script>
+    <footer class="border-t border-line py-14 text-center text-sm">
+        <p class="text-slate-600">&copy; 2026 Jack Monaghan</p>
+    </footer>
+
+    <script src="files/site_data.js"></script>
+    <script src="site.js"></script>
 </body>
 </html>

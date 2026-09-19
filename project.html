@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Jack Monaghan</title>
+    <script src="tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body class="text-slate-300 font-sans leading-relaxed antialiased">
+
+    <nav class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-accent">← Jack Monaghan</a>
+        <div class="flex gap-6">
+            <a href="index.html#dashboards" class="text-slate-400 hover:text-accent">Dashboards</a>
+            <a href="datasets.html" class="text-slate-400 hover:text-accent">Datasets</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-12 pb-32">
+        <header class="max-w-3xl mb-16">
+            <p id="hero-kicker" class="kicker mb-3"></p>
+            <h1 id="hero-title" class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Loading…</h1>
+            <p id="hero-subtitle" class="text-lg font-medium text-slate-400 mt-4"></p>
+            <p id="hero-abstract" class="text-lg text-slate-400 mt-5 leading-relaxed"></p>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <aside class="lg:col-span-1 space-y-10 lg:sticky lg:top-8 self-start">
+                <section>
+                    <p class="kicker mb-4">Dashboards</p>
+                    <p class="note mb-4">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>
+                        About 20 seconds to wake up
+                    </p>
+                    <div id="asset-dashboards" class="flex flex-col gap-4"></div>
+                </section>
+                <section>
+                    <p class="kicker mb-4">Code</p>
+                    <div id="asset-repos" class="flex flex-col gap-2"></div>
+                </section>
+                <section>
+                    <p class="kicker mb-4">Datasets</p>
+                    <p class="note mb-4">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                        Each link downloads a large CSV file
+                    </p>
+                    <div id="asset-datasets" class="flex flex-col gap-2"></div>
+                </section>
+                <section>
+                    <p class="kicker mb-3">Other projects</p>
+                    <div id="other-projects" class="flex flex-col gap-2"></div>
+                </section>
+            </aside>
+
+            <div class="lg:col-span-2">
+                <article id="markdown-body" class="card prose-dark p-8 md:p-12 text-[1.05rem] leading-relaxed">
+                    <p class="text-slate-500">Loading…</p>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-line py-14 text-center text-sm">
+        <p class="text-slate-600">&copy; 2026 Jack Monaghan</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="files/site_data.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>

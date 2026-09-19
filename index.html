@@ -1,106 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack Monaghan | Portfolio</title>
+    <meta name="description" content="Data pipelines and public dashboards on Illinois prisons, parole and probation, by Jack Monaghan.">
     <script src="tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Modal functionality */
-        #cvModal { display: none; }
-        #cvModal.active { display: flex; }
-        /* Smooth scrolling for links */
-        html { scroll-behavior: smooth; }
-    </style>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+<body class="text-slate-300 font-sans leading-relaxed antialiased">
 
     <!-- header -->
-    <header class="container mx-auto py-16 px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
-            <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-                <img src="files/picture.jpg" alt="Jack Monaghan" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
-                
-                <div>
-                    <h1 class="text-5xl font-extrabold text-gray-900 tracking-tight">Jack Monaghan</h1>
-                    <p class="text-xl mt-3 text-blue-800 font-semibold uppercase tracking-wide">
-                        Project Manager | Data and Analytics Leader 
-                    </p>
-                    <p class="text-lg mt-1 text-gray-600 font-medium">
-                        Illinois Criminal Justice Information Authority 
-                    </p>
+    <header class="max-w-6xl mx-auto px-6 pt-24 pb-20">
+        <div class="flex flex-col md:flex-row items-center md:items-end gap-10">
+            <img src="files/picture.jpg" alt="Jack Monaghan"
+                 class="w-36 h-36 rounded-full object-cover ring-4 ring-slate-800 shadow-2xl shadow-sky-900/40">
+            <div class="text-center md:text-left">
+                <p class="kicker mb-3">Illinois Criminal Justice Information Authority</p>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight">Jack Monaghan</h1>
+                <p class="text-lg mt-3 text-slate-400 font-medium">Project Manager · Data and Analytics Leader</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 mt-6 text-sm font-semibold">
+                    <button onclick="toggleModal()" class="text-slate-300 hover:text-accent">Curriculum Vitae</button>
+                    <a href="https://github.com/jackmonaghan97" target="_blank" rel="noopener" class="text-slate-300 hover:text-accent">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jmonaghan97" target="_blank" rel="noopener" class="text-slate-300 hover:text-accent">LinkedIn</a>
+                    <a href="https://www.chess.com/member/monahansom" target="_blank" rel="noopener" class="text-slate-300 hover:text-accent">Chess.com</a>
                 </div>
             </div>
-
-          <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
-                <a href="datasets.html"
-                    class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
-                    Go to Datasets
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
-
-                <a href="#project-grid"
-                    class="text-sm font-bold bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-md flex items-center">
-                    Go to Projects
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
-            </div>
+        </div>
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-12">
+            <a href="#dashboards" class="btn btn-primary">Dashboards</a>
+            <a href="#projects" class="btn btn-ghost">Projects</a>
+            <a href="datasets.html" class="btn btn-ghost">Datasets</a>
         </div>
     </header>
-        
-        <
-        <main class="container mx-auto px-6 space-y-16 pb-24">
 
-        <!-- Top line links -->
+    <main class="max-w-6xl mx-auto px-6 space-y-28 pb-32">
+
+        <!-- profile -->
         <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Resources</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                
-                <button onclick="toggleModal()" class="bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group text-left w-full">
-                    <span class="block text-sm font-bold text-gray-900 group-hover:text-blue-600">Curriculum Vitae</span>
-                    <span class="text-xs text-gray-500">Experience & Education</span>
-                </button>
-
-                <a href="https://github.com/jackmonaghan97" target="_blank" class="bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group">
-                    <span class="block text-sm font-bold text-gray-900 group-hover:text-blue-600">GitHub</span>
-                    <span class="text-xs text-gray-500">Code Repositories</span>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/jmonaghan97" target="_blank" class="bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group">
-                    <span class="block text-sm font-bold text-gray-900 group-hover:text-blue-600">LinkedIn</span>
-                    <span class="text-xs text-gray-500">Professional Network</span>
-                </a>
-                
-                <a href="https://www.chess.com/member/monahansom" target="_blank" class="bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group">
-                    <span class="block text-sm font-bold text-gray-900 group-hover:text-blue-600">Chess.com</span>
-                    <span class="text-xs text-gray-500">1500+ Rapid Rank</span>
-                </a>
-            </div>
-            
-        </section>
-
-        <!-- Section describing who I am -->
-        <section>
-            
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-8 border-b border-gray-200 pb-2">
-                Profile
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">        
-                <div class="md:col-span-2 space-y-6">
-
-
-                    <p class="text-lg text-gray-600 leading-relaxed text-justify [hyphens:auto]">
+            <p class="kicker mb-3">Profile</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-14 items-start">
+                <div class="lg:col-span-2 space-y-6 text-lg text-slate-400 leading-relaxed">
+                    <p>
                         I am a proactive Analyst Engineer and Project Manager with four years of experience architecting
                         automated data pipelines and analytics tools. Currently leading the CCJDA unit at the ICJIA, I
                         specialize in transforming complex, semi-structured datasets into actionable public transparency
@@ -108,115 +53,82 @@
                         management—whether I am migrating legacy repositories to modern CI/CD workflows or negotiating
                         intergovernmental data-sharing agreements.
                     </p>
-                    <p class="text-lg text-gray-600 leading-relaxed text-justify [hyphens:auto]">
+                    <p>
                         My approach combines a "no-problem" attitude with high-level technical oversight, recently resulting in the
                         elimination of 8 hours of manual labor weekly and an annual licensing cost reduction of $37,000. With a background
                         in Mathematics and Environmental Economics, I bridge the gap between non-technical business requirements and
                         scalable data products, ensuring that every modernization effort is both budget-conscious and statutorily secure.
                     </p>
-                </div>  
-
-                <div class="flex flex-col gap-4">
-                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Languages, Tools and Packages</h4>
-                        <p class="text-sm text-gray-800 font-medium"> Python, SQL, R, JavaScript, HTML, Tableau, Power BI</p>
-                        <p class="text-sm text-gray-500 font-light text-italic mt-1">
-                            Pandas, NumPy, Seaborn, Sklearn,
-                            Psycopg2, Matplotlib, Shiny, Polars </p>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Management</h4>
-                        <p class="text-sm text-gray-800 font-medium">Jira, Azure DevOps, Agile PM</p>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-brand-primary mb-2">Infrastructure</h4>
-                        <p class="text-sm text-gray-800 font-medium">Docker, AWS, PostGre, DuckDB, Terraform</p>
-                    </div>
                 </div>
-
+                <dl class="card p-7 space-y-5 text-sm">
+                    <div>
+                        <dt class="kicker mb-1.5">Languages &amp; tools</dt>
+                        <dd class="text-slate-200">Python, SQL, R, JavaScript, HTML, Tableau, Power BI</dd>
+                        <dd class="text-slate-500 mt-1">Pandas, NumPy, Polars, Shiny, Plotly, Seaborn, Sklearn, Psycopg2</dd>
+                    </div>
+                    <div>
+                        <dt class="kicker mb-1.5">Management</dt>
+                        <dd class="text-slate-200">Jira, Azure DevOps, Agile PM</dd>
+                    </div>
+                    <div>
+                        <dt class="kicker mb-1.5">Infrastructure</dt>
+                        <dd class="text-slate-200">Docker, AWS, Cloudflare R2, PostgreSQL, DuckDB, Terraform, Render</dd>
+                    </div>
+                </dl>
             </div>
         </section>
 
-        <!-- Work Products -->
-        <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">Work Products</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                
-                <a href="https://doc-expenses-dashboard-v1.onrender.com/" target="_blank" class="bg-blue-50 p-5 rounded-xl border border-gray-200 shadow-sm hover:border-blue-400 hover:shadow-md transition-all group">
-                    <span class="block text-sm font-bold text-gray-900 group-hover:text-blue-600">IDOC Expenses</span>
-                    <span class="text-xs text-gray-500">Dashboard</span>
-                </a>
+        <!-- dashboards -->
+        <section id="dashboards">
+            <p class="kicker mb-3">Dashboards</p>
+            <h2 class="section-title">Four public dashboards</h2>
+            <p class="text-slate-400 mt-3 max-w-2xl">Interactive Shiny apps built on the two pipelines below.</p>
+            <p class="note mt-5">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>
+                They run on free hosting that sleeps between visits: expect about 20 seconds before a dashboard appears.
+            </p>
+            <div id="dashboard-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10"></div>
+        </section>
 
-            </div>
+        <!-- projects -->
+        <section id="projects">
+            <p class="kicker mb-3">Projects</p>
+            <h2 class="section-title">Two pipelines, from published files to public data</h2>
+            <p class="text-slate-400 mt-3 max-w-2xl">Each project collects an agency's spreadsheets and turns them into clean tables, downloadable datasets and the dashboards above.</p>
+            <div id="project-grid" class="grid md:grid-cols-2 gap-6 mt-10"></div>
         </section>
-        
-        <!-- Example Datasets -->
-        <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2">
-                Example Datasets
-            </h2>
-        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-        </section>
-        
-        <!-- Projects -->
-        <section>
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 border-b border-gray-200 pb-2"> Example Projects </h2>
-           <div id="project-grid" class="grid md:grid-cols-2 gap-8"></div>
-        </section>
-    
+
     </main>
 
-    <footer class="bg-white border-t border-gray-200 py-12 text-center">
-        <p class="text-gray-400 text-sm tracking-widest uppercase mb-4 font-bold italic">Jack Monaghan | The Solution</p>
-        <div class="flex justify-center gap-8 mb-4">
-            <a href="mailto:your-email@example.com" class="text-blue-600 font-bold hover:underline">Email</a>
-            <a href="#" class="text-gray-600 font-bold hover:underline">LinkedIn</a>
+    <footer class="border-t border-line py-14 text-center text-sm">
+        <div class="flex justify-center gap-8 mb-4 font-semibold">
+            <a href="https://github.com/jackmonaghan97" target="_blank" rel="noopener" class="text-slate-400 hover:text-accent">GitHub</a>
+            <a href="https://www.linkedin.com/in/jmonaghan97" target="_blank" rel="noopener" class="text-slate-400 hover:text-accent">LinkedIn</a>
+            <a href="datasets.html" class="text-slate-400 hover:text-accent">Datasets</a>
         </div>
-        <p class="text-xs text-gray-300">&copy; 2026 Jack Monaghan. Built for precision.</p>
+        <p class="text-slate-600">&copy; 2026 Jack Monaghan</p>
     </footer>
 
-    <div id="cvModal" class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm items-center justify-center p-4">
-        <div class="bg-white w-full max-w-5xl rounded-3xl shadow-2xl flex flex-col max-h-[95vh] overflow-hidden animate-in fade-in zoom-in duration-300">
-            <div class="p-6 border-b flex justify-between items-center bg-gray-50">
+    <!-- CV modal -->
+    <div id="cvModal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm items-center justify-center p-4">
+        <div class="bg-panel border border-line w-full max-w-5xl rounded-3xl shadow-2xl flex flex-col max-h-[95vh] overflow-hidden">
+            <div class="p-6 border-b border-line flex justify-between items-center">
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900">Curriculum Vitae</h3>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Jack Monaghan</p>
+                    <h3 class="text-xl font-bold text-white">Curriculum Vitae</h3>
+                    <p class="kicker">Jack Monaghan</p>
                 </div>
-                <button onclick="toggleModal()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-red-100 hover:text-red-600 transition-colors text-2xl font-light">&times;</button>
+                <button onclick="toggleModal()" aria-label="Close" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-2xl font-light">&times;</button>
             </div>
-            <div class="flex-grow bg-gray-100 relative min-h-[500px] md:min-h-[700px]">
+            <div class="flex-grow bg-slate-950 relative min-h-[500px] md:min-h-[700px]">
                 <embed src="files/CV.pdf" type="application/pdf" width="100%" height="100%" class="absolute inset-0">
             </div>
-            <div class="p-6 border-t bg-white flex justify-center">
-                <a href="files/CV.pdf" download class="bg-blue-600 text-white px-8 py-2 rounded-full font-bold shadow-lg hover:bg-blue-700 transition">Download Full PDF</a>
+            <div class="p-5 border-t border-line flex justify-center">
+                <a href="files/CV.pdf" download class="btn btn-primary">Download PDF (170 KB)</a>
             </div>
         </div>
     </div>
 
-    <script>
-        function toggleModal() {
-            const modal = document.getElementById('cvModal');
-            modal.classList.toggle('active');
-            // Prevent scrolling when modal is open
-            if (modal.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Close if clicking outside the box
-        window.onclick = function(event) {
-            const modal = document.getElementById('cvModal');
-            if (event.target == modal) {
-                toggleModal();
-            }
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="main.js"></script>
-
+    <script src="files/site_data.js"></script>
+    <script src="site.js"></script>
 </body>
 </html>
