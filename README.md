@@ -5,10 +5,9 @@ Static portfolio site (GitHub Pages). No build step: Tailwind and marked come fr
 ```
 index.html          home: profile, resources, dashboard tiles, project cards
 project.html        one project write-up: ?id=idoc or ?id=aoic
-datasets.html       downloadable datasets
 site.js             renders every page from files/site_data.js
 site.css            theme (dark slate, glow gradient, cards, buttons)
-files/site_data.js  ALL content: projects, their dashboards / repos, datasets
+files/site_data.js  ALL content: projects and their dashboards / repos
 markdown/*.md       the project write-ups; bundle_markdown.py packs them into files/content.js
                     (the deploy workflow does this; run it locally after editing a write-up)
 files/              CV.pdf, picture.jpg
@@ -16,7 +15,7 @@ files/              CV.pdf, picture.jpg
 
 ## Edit
 
-- Add or change a dashboard, repo or dataset: `files/site_data.js`. The dashboard tiles on
+- Add or change a dashboard or repo: `files/site_data.js`. The dashboard tiles on
   the home page are derived from each project's `products`.
 - Change a write-up: `markdown/<id>.md`.
 

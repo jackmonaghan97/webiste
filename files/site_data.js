@@ -3,7 +3,6 @@
 //
 //   SITE_PROJECTS   the two project write-ups (project.html?id=<id>) and their assets
 //   SITE_DASHBOARDS the dashboard tiles on the home page (derived from the projects)
-//   SITE_DATASETS   the downloadable datasets (datasets.html)
 
 window.SITE_PROJECTS = [
   {
@@ -13,10 +12,10 @@ window.SITE_PROJECTS = [
     subtitle: "Prison population, admissions and exits, parole (MSR), spending and disparity",
     abstract:
       "Scrapes the ~40 Excel files IDOC publishes for its prison population, admission, exit and " +
-      "parole data sets, loads them into DuckDB, and turns them into public datasets, two Shiny " +
-      "dashboards and a racial-disparity analysis.",
+      "parole data sets, loads them into DuckDB, and turns them into two Shiny dashboards and a " +
+      "racial-disparity analysis.",
     markdown: "markdown/idoc.md",
-    tags: ["corrections", "pipeline", "dashboard", "datasets"],
+    tags: ["corrections", "pipeline", "dashboard"],
     repos: [
       { label: "Pipeline (idoc_con)", url: "https://github.com/jackmonaghan97/idoc_con" },
       { label: "Census denominators", url: "https://github.com/jackmonaghan97/cesnsus_illinois_county_population" },
@@ -39,8 +38,7 @@ window.SITE_PROJECTS = [
         url: "https://msr-dashboard.onrender.com",
         github: "https://github.com/jackmonaghan97/msr_dashboard"
       }
-    ],
-    datasets: ["prison_admission_data_sets", "prison_exit_data_sets", "prison_population_data_sets"]
+    ]
   },
   {
     id: "aoic",
@@ -73,8 +71,7 @@ window.SITE_PROJECTS = [
         url: "https://juvenile-dashboard.onrender.com",
         github: "https://github.com/jackmonaghan97/juvenile_dashboard"
       }
-    ],
-    datasets: []
+    ]
   }
 ];
 
@@ -82,36 +79,3 @@ window.SITE_PROJECTS = [
 window.SITE_DASHBOARDS = window.SITE_PROJECTS.flatMap(p =>
   p.products.filter(x => x.type === "Dashboard").map(x => ({ ...x, project: p.short, projectId: p.id }))
 );
-
-window.SITE_DATASETS = [
-  {
-    id: "prison_admission_data_sets",
-    size: "34 MB",
-    title: "IDOC Prison Admissions",
-    project: "idoc",
-    url: "https://jack-monaghan.com/datasets/prison_admission_data_sets.csv",
-    tags: ["corrections"],
-    abstract: "Every admission to the Illinois Department of Corrections prison system from 2018 to the present: " +
-      "one row per admission with sex, race, holding offense, admission type, sentencing county and dates."
-  },
-  {
-    id: "prison_exit_data_sets",
-    size: "73 MB",
-    title: "IDOC Prison Exits",
-    project: "idoc",
-    url: "https://jack-monaghan.com/datasets/prison_exit_data_sets.csv",
-    tags: ["corrections"],
-    abstract: "Every exit from the Illinois Department of Corrections prison system from 2014 to the present, " +
-      "with the exit reason (mandatory supervised release, expiration of sentence, ...) and releasing institution."
-  },
-  {
-    id: "prison_population_data_sets",
-    size: "291 MB",
-    title: "IDOC Prison Population",
-    project: "idoc",
-    url: "https://jack-monaghan.com/datasets/prison_population_data_sets.csv",
-    tags: ["corrections"],
-    abstract: "IDOC's quarterly stock-population files appended into one long table: one row per person in custody " +
-      "on each snapshot date, 2011 to the present."
-  }
-];

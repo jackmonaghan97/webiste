@@ -1,4 +1,4 @@
-// Renders the home page grids, the project detail page and the datasets page from
+// Renders the home page grids and the project detail page from
 // files/site_data.js. Markdown write-ups come from files/content.js (bundled from
 // markdown/*.md by bundle_markdown.py) and are rendered with marked.
 
@@ -13,8 +13,6 @@ function getQueryParam(name) {
 
 const ICON_EXTERNAL = `<svg class="w-4 h-4 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
   <path stroke-linecap="round" stroke-linejoin="round" d="M14 4h6m0 0v6m0-6L10 14M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4"/></svg>`;
-const ICON_DOWNLOAD = `<svg class="w-4 h-4 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>`;
 const ICON_CLOCK = `<svg class="w-3.5 h-3.5 inline -mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
   <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>`;
 
@@ -83,16 +81,6 @@ async function renderProjectPage() {
 
   document.getElementById("asset-repos").innerHTML = project.repos.map(r => link(r.url, r.label)).join("");
 
-  const datasets = window.SITE_DATASETS.filter(d => project.datasets.includes(d.id));
-  const dsBox = document.getElementById("asset-datasets");
-  if (datasets.length) {
-    dsBox.innerHTML = datasets.map(d =>
-      link(d.url, `${d.title} · ${d.size}`, "ghost", ICON_DOWNLOAD, `Downloads a ${d.size} CSV file`)).join("")
-      + `<a href="datasets.html" class="text-sm font-bold text-accent hover:underline mt-2">About the datasets →</a>`;
-  } else {
-    dsBox.closest("section").classList.add("hidden");
-  }
-
   document.getElementById("other-projects").innerHTML = window.SITE_PROJECTS.filter(p => p.id !== project.id).map(p => `
     <a href="project.html?id=${encodeURIComponent(p.id)}" class="text-sm font-bold text-accent hover:underline">${escapeHtml(p.title)} →</a>`).join("");
 
@@ -115,24 +103,6 @@ async function renderProjectPage() {
   }
 }
 
-// ---------------------------------------------------------------- datasets page
-function renderDatasetsPage() {
-  const el = document.getElementById("datasets-list");
-  if (!el) return;
-  const projectName = id => (window.SITE_PROJECTS.find(p => p.id === id) || {}).title || "";
-  el.innerHTML = window.SITE_DATASETS.map(d => `
-    <div class="card p-7 flex flex-col md:flex-row md:items-center gap-8">
-      <div class="flex-grow">
-        <p class="kicker">${escapeHtml(projectName(d.project))}</p>
-        <h3 class="text-xl font-bold text-white mt-2">${escapeHtml(d.title)}</h3>
-        <p class="text-slate-400 mt-2 leading-relaxed">${escapeHtml(d.abstract)}</p>
-        <p class="text-xs text-slate-500 mt-3">CSV · ${escapeHtml(d.size)} · ${(d.tags || []).map(escapeHtml).join(", ")}</p>
-      </div>
-      <a href="${escapeHtml(d.url)}" target="_blank" rel="noopener" title="Downloads a ${escapeHtml(d.size)} CSV file to your device"
-         class="btn btn-primary whitespace-nowrap">${ICON_DOWNLOAD} Download CSV · ${escapeHtml(d.size)}</a>
-    </div>`).join("");
-}
-
 // ---------------------------------------------------------------- CV modal (home page)
 function toggleModal() {
   const modal = document.getElementById("cvModal");
@@ -150,5 +120,4 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDashboards("dashboard-grid");
   renderProjects("project-grid");
   renderProjectPage();
-  renderDatasetsPage();
 });
