@@ -4,7 +4,22 @@ The Illinois Department of Corrections (IDOC) publishes its statistical data as 
 
 This project scrapes those pages, cleans and appends the files into four DuckDB tables, publishes them as open CSV datasets, and builds two Shiny dashboards on top: one for the prisons and one for MSR. A separate analysis measures the racial disparity in incarceration across the state.
 
-## The data
+## The dashboards
+
+**Illinois Prisons** — four pages:
+
+- *Population & rates*: people in custody by sentencing county, the incarceration rate per 100,000 residents of the same sex, race and age group, the Black : White disparity ratio over time, and a county map with a sortable table.
+- *Admissions & exits*: flows per month, quarter or year, admissions by type and exits by reason.
+- *Recidivism*: for each release cohort, the share back in IDOC within one, two or three years, split by the type of the first return, with cumulative return curves by race.
+- *Expenses*: IDOC spending from the Illinois Comptroller by fiscal year and category, and the cost per inmate against the average headcount.
+
+**Illinois MSR (Parole)** — three pages: the MSR population by county of residence with rates and disparity (on a log color scale, because one county hosts a treatment and detention facility), admissions to MSR by release type, sex, race, age or offense with the releasing institutions, and a caseload profile of sentence class and length, time on MSR and time to projected discharge.
+
+Both dashboards are built to the same accessibility conventions: alternative text on every chart, high-contrast map fills with a black state outline, stacked charts that read without color, and distinct markers on every line.
+
+## The datasets
+
+The four tables are published as plain CSV on the [datasets page](datasets.html) — each link downloads the whole file, from 34 MB to 291 MB.
 
 | Data set | What a row is | Coverage |
 |---|---|---|
@@ -24,19 +39,6 @@ Every row carries sex, race, date of birth, the holding offense, sentencing coun
 3. **Load and publish.** The four tables are written to DuckDB and, as CSV, to a Cloudflare R2 bucket served from `jack-monaghan.com/datasets` by a small Worker — the [datasets](datasets.html) on this site.
 
 Population denominators come from a second small pipeline, `cesnsus_illinois_county_population`, which loads the American Community Survey 5-year county population by sex, age and race/ethnicity for every vintage since 2009 and checks each year's total against the Census Bureau's own.
-
-## The dashboards
-
-**Illinois Prisons** — four pages:
-
-- *Population & rates*: people in custody by sentencing county, the incarceration rate per 100,000 residents of the same sex, race and age group, the Black : White disparity ratio over time, and a county map with a sortable table.
-- *Admissions & exits*: flows per month, quarter or year, admissions by type and exits by reason.
-- *Recidivism*: for each release cohort, the share back in IDOC within one, two or three years, split by the type of the first return, with cumulative return curves by race.
-- *Expenses*: IDOC spending from the Illinois Comptroller by fiscal year and category, and the cost per inmate against the average headcount.
-
-**Illinois MSR (Parole)** — three pages: the MSR population by county of residence with rates and disparity (on a log color scale, because one county hosts a treatment and detention facility), admissions to MSR by release type, sex, race, age or offense with the releasing institutions, and a caseload profile of sentence class and length, time on MSR and time to projected discharge.
-
-Both dashboards are built to the same accessibility conventions: alternative text on every chart, high-contrast map fills with a black state outline, stacked charts that read without color, and distinct markers on every line.
 
 ## Disparity analysis
 
