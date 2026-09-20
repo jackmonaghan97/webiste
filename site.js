@@ -1,7 +1,6 @@
 // Renders the home page grids, the project detail page and the datasets page from
-// files/site_data.js. Markdown write-ups are fetched from markdown/*.md and rendered with
-// marked; when the site is opened from disk (file://) the fetch is blocked, so the page
-// falls back to the abstract and says so.
+// files/site_data.js. Markdown write-ups come from files/content.js (bundled from
+// markdown/*.md by bundle_markdown.py) and are rendered with marked.
 
 function escapeHtml(str = "") {
   return String(str)
@@ -98,9 +97,16 @@ async function renderProjectPage() {
     <a href="project.html?id=${encodeURIComponent(p.id)}" class="text-sm font-bold text-accent hover:underline">${escapeHtml(p.title)} →</a>`).join("");
 
   try {
-    const res = await fetch(project.markdown);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    body.innerHTML = marked.parse(await res.text());
+    // files/content.js (built by bundle_markdown.py) carries the write-ups; fall back to
+    // fetching the .md file when it is missing, e.g. right after editing a write-up locally
+    const key = project.markdown.replace(/^markdown\//, "").replace(/\.md$/, "");
+    let text = (window.SITE_CONTENT || {})[key];
+    if (text == null) {
+      const res = await fetch(project.markdown);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      text = await res.text();
+    }
+    body.innerHTML = marked.parse(text);
   } catch (e) {
     body.innerHTML = `<p>${escapeHtml(project.abstract)}</p>
       <p class="text-sm text-slate-500">The full write-up (<code>${escapeHtml(project.markdown)}</code>) could not be loaded.
