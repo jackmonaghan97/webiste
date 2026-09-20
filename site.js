@@ -16,7 +16,7 @@ const ICON_EXTERNAL = `<svg class="w-4 h-4 inline" fill="none" stroke="currentCo
 const ICON_CLOCK = `<svg class="w-3.5 h-3.5 inline -mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
   <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>`;
 
-const WAKE_NOTE = "Free hosting sleeps between visits; allow about 20 seconds for the app to appear.";
+const WAKE_NOTE = "Free hosting sleeps between visits; allow up to a minute for the app to appear.";
 
 // ---------------------------------------------------------------- home page
 function renderDashboards(containerId) {
@@ -30,7 +30,7 @@ function renderDashboards(containerId) {
       <span class="text-slate-400 mt-3 flex-grow leading-relaxed">${escapeHtml(d.description)}</span>
       <span class="flex items-center justify-between mt-6 text-sm">
         <span class="font-bold text-accent">Open dashboard ${ICON_EXTERNAL}</span>
-        <span class="text-slate-500">${ICON_CLOCK} ~20 s to load</span>
+        <span class="text-slate-500">${ICON_CLOCK} ~1 min to load</span>
       </span>
     </a>`).join("");
 }
@@ -74,7 +74,7 @@ async function renderProjectPage() {
       <p class="font-bold text-white">${escapeHtml(x.title)}</p>
       <p class="text-sm text-slate-400 mt-1 mb-4">${escapeHtml(x.description)}</p>
       <div class="flex flex-col gap-2">
-        ${x.url ? link(x.url, "Open dashboard (~20 s)", "primary", ICON_EXTERNAL, WAKE_NOTE) : ""}
+        ${x.url ? link(x.url, "Open dashboard (~1 min)", "primary", ICON_EXTERNAL, WAKE_NOTE) : ""}
         ${x.github ? link(x.github, "Dashboard code") : ""}
       </div>
     </div>`).join("");
