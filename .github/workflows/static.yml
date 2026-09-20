@@ -17,6 +17,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Bundle markdown write-ups
         run: python3 bundle_markdown.py
+      - name: Cache-bust local scripts and stylesheets
+        # site.js -> site.js?v=<commit>, so browsers never pair a new page with a stale asset
+        run: sed -i -E "s#(src|href)=\"([a-z_/.-]+\.(js|css))\"#=\"?v=${GITHUB_SHA::8}\"#g" *.html
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
